@@ -29,7 +29,42 @@ function longestWord(sen) {
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {}
+function chunkArray(arr, len) {
+  //SOLUTION 1 - DO WHILE LOOP
+
+  //   // initialize a chunked array
+  //   const chunkedArr = [];
+  //   // set index
+  //   let i = 0;
+
+  //   //loop while index is less than the array length
+  //   while (i < arr.length) {
+  //     //Slice out from the index to the index + the chunk length and push
+  //     //On to the chunked array
+  //     chunkedArr.push(arr.slice(i, i + len));
+  //     //increment by chunk length
+  //     i += len;
+  //   }
+  //   return chunkedArr;
+
+  //SOLUTION 2 - FOR EACH
+
+  //Initialize array
+  const chunkedArr = [];
+
+  //Loop through array
+  arr.forEach(function(val) {
+    //Get last element
+    const last = chunkedArr[chunkedArr.length - 1];
+    // Check if last and if last length is equal to the chunk length
+    if (!last || last.length === len) {
+      chunkedArr.push([val]);
+    } else {
+      last.push(val);
+    }
+  });
+  return chunkedArr;
+}
 
 // CHALLENGE 3: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
@@ -52,6 +87,6 @@ function isAnagram(str1, str2) {}
 function letterChanges(str) {}
 
 // Call Function
-const output = longestWord("Helloo there, my name is Josh");
+const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
 
 console.log(output);
