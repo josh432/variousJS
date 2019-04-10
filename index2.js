@@ -53,7 +53,7 @@ function chunkArray(arr, len) {
   const chunkedArr = [];
 
   //Loop through array
-  arr.forEach(function(val) {
+  arr.forEach(val => {
     //Get last element
     const last = chunkedArr[chunkedArr.length - 1];
     // Check if last and if last length is equal to the chunk length
@@ -70,8 +70,22 @@ function chunkArray(arr, len) {
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {}
+function flattenArray(arrays) {
+  //SOLUTION 1 - REDUCE
+  return arrays.reduce((a, b) => a.concat(b));
 
+  // SOLUTION 2 - APPLY
+  // return [].concat.apply([], arrays);
+
+  //SOLUTION 3 - SPREAD OPERATOR
+  //   function add(a, b, c) {
+  //     return a + b + c;
+  //   }
+  //   const arr = [1, 2, 3];
+  //   console.log(add(...arr));
+
+  // return [].concat(...arrays);
+}
 // CHALLENGE 4: ANAGRAM
 // Return true if anagram and false if not
 // ex. 'elbow' === 'below'
@@ -87,6 +101,6 @@ function isAnagram(str1, str2) {}
 function letterChanges(str) {}
 
 // Call Function
-const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
+const output = flattenArray([[1, 2], [3, 4], [5, 6], [7]]);
 
 console.log(output);
