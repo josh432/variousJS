@@ -83,27 +83,27 @@
 // a = [-1, 150, 190, 170, -1, -1, 160, 180]
 // sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
 
-function sortByHeight(a) {
-  const arr1 = []; //store -1 here
-  const arr2 = []; //store values here
+// function sortByHeight(a) {
+//   const arr1 = []; //store -1 here
+//   const arr2 = []; //store values here
 
-  //   a.forEach((val, i) => {
-  //     if (val === -1) {
-  //       arr1.push(i);
-  //     } else {
-  //       arr2.push(val);
-  //     }
-  //   }); or
+//   a.forEach((val, i) => {
+//     if (val === -1) {
+//       arr1.push(i);
+//     } else {
+//       arr2.push(val);
+//     }
+//   }); or
 
-  a.forEach((val, i) => (val === -1 ? arr1.push(i) : arr2.push(val)));
-  const sortArray = arr2.sort((a, b) => a - b);
+//   a.forEach((val, i) => (val === -1 ? arr1.push(i) : arr2.push(val)));
+//   const sortArray = arr2.sort((a, b) => a - b);
 
-  arr1.forEach((val, i) => sortArray.splice(arr1[i], 0, -1));
-  return sortArray;
-}
+//   arr1.forEach((val, i) => sortArray.splice(arr1[i], 0, -1));
+//   return sortArray;
+// }
 
-const a = [-1, 150, 190, 170, -1, -1, 160, 180];
-console.log(sortByHeight(a));
+// const a = [-1, 150, 190, 170, -1, -1, 160, 180];
+// console.log(sortByHeight(a));
 
 // CHALLENGE 5: MISSING LETTERS
 // Find the missing letter in the passed letter range and return it. If all letters are present, return undefined
@@ -112,7 +112,22 @@ console.log(sortByHeight(a));
 // missingLetters("abcdefghjklmno") == "i"
 // missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
 
-function missingLetters() {}
+function missingLetters(str) {
+  let compare = str.charCodeAt(0);
+  let missing;
+
+  str.split("").map((char, i) => {
+    if (str.charCodeAt(i) == compare) {
+      ++compare;
+    } else {
+      missing = String.fromCharCode(compare);
+    }
+  });
+
+  return missing;
+}
+
+console.log(missingLetters("abcdefgi"));
 
 // CHALLENGE 6: EVEN & ODD SUMS
 // Take in an array and return an array of the sums of even and odd numbers
