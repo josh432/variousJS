@@ -6,7 +6,7 @@
 //   //SOLUTION - ES5 arguments & for loop
 //   var args = Array.prototype.slice.call(arguments);
 //   var total = 0;
-//   for (i = 0; i < args.length; i++) {
+//   for (let i = 0; i < args.length; i++) {
 //     total += args[i];
 //   }
 //   return total;
@@ -22,17 +22,37 @@
 
 //SOLUTION 3 - Reduce
 
-function addAll(...numbers) {
-  return numbers.reduce((acc, cur) => acc + cur);
-}
+// function addAll(...numbers) {
+//   return numbers.reduce((acc, cur) => acc + cur);
+// }
 
-console.log(addAll(2, 5, 6, 7));
+// console.log(addAll(2, 5, 6, 7));
 
 // CHALLENGE 2: SUM ALL PRIMES
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
 // ex. sumAllPrimes(10) == 17
 
-function sumAllPrimes() {}
+// function sumAllPrimes(num) {
+//   let total = 0;
+
+//   function checkForPrime(i) {
+//     for (let j = 2; j < i; j++) {
+//       if (i % j === 0) {
+//         return false;
+//       }
+//     }
+//     return true;
+//   }
+
+//   for (let i = 2; i <= num; i++) {
+//     if (checkForPrime(i)) {
+//       total += i;
+//     }
+//   }
+//   return total;
+// }
+
+// console.log(sumAllPrimes(100));
 
 // CHALLENGE 3: SEEK & DESTROY
 // Remove from the array whatever is in the following arguments. Return the leftover numbers in an array
