@@ -112,26 +112,35 @@
 // missingLetters("abcdefghjklmno") == "i"
 // missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
 
-function missingLetters(str) {
-  let compare = str.charCodeAt(0);
-  let missing;
+// function missingLetters(str) {
+//   let compare = str.charCodeAt(0);
+//   let missing;
 
-  str.split("").map((char, i) => {
-    if (str.charCodeAt(i) == compare) {
-      ++compare;
-    } else {
-      missing = String.fromCharCode(compare);
-    }
-  });
+//   str.split("").map((char, i) => {
+//     if (str.charCodeAt(i) == compare) {
+//       ++compare;
+//     } else {
+//       missing = String.fromCharCode(compare);
+//     }
+//   });
 
-  return missing;
-}
+//   return missing;
+// }
 
-console.log(missingLetters("abcdefgi"));
+// console.log(missingLetters("abcdefgi"));
 
 // CHALLENGE 6: EVEN & ODD SUMS
 // Take in an array and return an array of the sums of even and odd numbers
 // ex.
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
-function evenOddSums() {}
+function evenOddSums(arr) {
+  let evenSum = 0;
+  let oddSum = 0;
+
+  arr.forEach(num => (num % 2 === 0 ? (evenSum += num) : (oddSum += num)));
+
+  return [evenSum, oddSum];
+}
+
+console.log(evenOddSums([50, 60, 60, 45, 71]));
